@@ -114,8 +114,9 @@ section { padding: clamp(72px, 10vw, 128px) 0; }
 .btn-ghost { color: var(--text); border: 1px solid var(--line); }
 .btn-ghost:hover { background: var(--surface-2); }
 .btn svg { width: 20px; height: 20px; }
-.btn small { display: block; font-size: 11px; font-weight: 500; opacity: .75; line-height: 1; margin-bottom: 2px; }
-.btn .two-line { line-height: 1.1; text-align: left; }
+/* Official Apple badge: unmodified artwork, ≥40px tall, clear space ≥ 1/4 of its height */
+.store-badge { display: inline-block; line-height: 0; border-radius: 9px; }
+.store-badge img { height: 48px; width: auto; }
 
 /* ---------- hero ---------- */
 .hero { padding: clamp(48px, 8vw, 96px) 0 clamp(64px, 9vw, 112px); overflow: hidden; }
@@ -123,7 +124,7 @@ section { padding: clamp(72px, 10vw, 128px) 0; }
 .hero h1 { font-size: clamp(44px, 7vw, 80px); font-weight: 800; letter-spacing: -0.035em; }
 .hero h1 .hl { color: var(--accent); }
 .hero .lede { margin-top: 22px; }
-.hero .ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
+.hero .ctas { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; margin-top: 34px; }
 .hero .meta { margin-top: 22px; font-size: 14px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 6px 18px; }
 .hero .meta span::before { content: "✓"; color: var(--accent); font-weight: 700; margin-right: 6px; }
 .stage { position: relative; display: grid; place-items: center; min-height: 600px; }
@@ -276,7 +277,6 @@ footer a:hover { color: var(--text); }
 <!-- Shared glyph: folder with a play cut-out (from playsic-icon-master.svg) -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <symbol id="mark" viewBox="0 0 100 100"><path fill-rule="evenodd" d="M12 30a7 7 0 0 1 7-7h18l8 8h36a7 7 0 0 1 7 7v34a7 7 0 0 1-7 7H19a7 7 0 0 1-7-7zM40 43v26l24-13z"/></symbol>
-  <symbol id="apple" viewBox="0 0 24 24"><path fill="currentColor" d="M16.37 12.6c-.02-2.3 1.88-3.4 1.96-3.46-1.07-1.56-2.73-1.77-3.32-1.8-1.41-.14-2.76.83-3.47.83-.72 0-1.82-.81-3-.79-1.54.02-2.96.9-3.76 2.28-1.6 2.78-.41 6.9 1.15 9.15.76 1.1 1.67 2.34 2.86 2.3 1.15-.05 1.58-.74 2.97-.74 1.38 0 1.78.74 2.99.72 1.24-.02 2.02-1.12 2.77-2.23.88-1.28 1.24-2.52 1.26-2.59-.03-.01-2.4-.92-2.42-3.67zM14.1 5.86c.63-.77 1.06-1.83.94-2.9-.91.04-2.02.61-2.67 1.37-.58.67-1.1 1.76-.96 2.8 1.02.08 2.06-.52 2.69-1.27z"/></symbol>
 </svg>
 
 <header class="nav" id="nav">
@@ -305,9 +305,11 @@ footer a:hover { color: var(--text); }
       <p class="lede">playsic plays the audio you already own — straight from iCloud Drive and the Files app. No accounts, no streaming, no ads. Just your library, beautifully played.</p>
       <div class="ctas">
         <!-- TODO: replace href with the App Store URL once the listing is live -->
-        <a class="btn btn-primary" href="#download" aria-label="Download on the App Store">
-          <svg aria-hidden="true"><use href="#apple"/></svg>
-          <span class="two-line"><small>Download on the</small>App Store</span>
+        <a class="store-badge" href="#download">
+          <picture>
+            <source srcset="assets/app-store-badge-white.svg" media="(prefers-color-scheme: dark)">
+            <img src="assets/app-store-badge-black.svg" alt="Download on the App Store" width="144" height="48">
+          </picture>
         </a>
         <a class="btn btn-ghost" href="#how">See how it works</a>
       </div>
@@ -603,9 +605,11 @@ footer a:hover { color: var(--text); }
     <p class="lede">Free on the App Store for iPhone and iPad.</p>
     <div class="ctas">
       <!-- TODO: replace href with the App Store URL once the listing is live -->
-      <a class="btn btn-primary" href="#download" aria-label="Download on the App Store">
-        <svg aria-hidden="true"><use href="#apple"/></svg>
-        <span class="two-line"><small>Download on the</small>App Store</span>
+      <a class="store-badge" href="#download">
+        <picture>
+          <source srcset="assets/app-store-badge-white.svg" media="(prefers-color-scheme: dark)">
+          <img src="assets/app-store-badge-black.svg" alt="Download on the App Store" width="144" height="48">
+        </picture>
       </a>
     </div>
   </div>
