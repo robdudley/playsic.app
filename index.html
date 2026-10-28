@@ -244,8 +244,8 @@ summary::after { content: "+"; font-size: 24px; font-weight: 400; color: var(--m
 details[open] summary::after { transform: rotate(45deg); }
 .policy-body { padding: 0 0 28px; color: var(--muted); max-width: 75ch; }
 .policy-body h4 { color: var(--text); margin: 22px 0 6px; font-size: 16px; }
-.policy-body p + p, .policy-body ul { margin-top: 10px; }
-.policy-body ul { padding-left: 20px; }
+.policy-body p + p, .policy-body ul, .policy-body ol, .policy-body ol + p { margin-top: 10px; }
+.policy-body ul, .policy-body ol { padding-left: 20px; }
 .policy-body li + li { margin-top: 4px; }
 @media (max-width: 820px) { .privacy-hero { grid-template-columns: 1fr; } }
 
@@ -351,12 +351,12 @@ footer a:hover { color: var(--text); }
     <div class="section-head">
       <p class="eyebrow">How it works</p>
       <h2>Three steps. No sync service.</h2>
-      <p class="lede">Your files stay where they are. playsic remembers where to find them.</p>
+      <p class="lede">playsic keeps its own copy of every track it imports, so your library plays offline and never depends on a connection.</p>
     </div>
     <div class="steps">
       <div class="step">
         <h3>Put music in Files</h3>
-        <p>Drop MP3s or albums into iCloud Drive, On My iPhone, or any Files provider — from your Mac, PC or another app.</p>
+        <p>Drop MP3s or albums into iCloud Drive or On My iPhone — or use any service that shows up in the Files app, like Dropbox or Google Drive.</p>
       </div>
       <div class="step">
         <h3>Import into playsic</h3>
@@ -494,7 +494,8 @@ footer a:hover { color: var(--text); }
           <p><strong>Effective 28 October 2026.</strong> This policy explains what the playsic app (“playsic”, “the app”), published by Parlaxis OÜ (“we”), does with information on your iPhone or iPad.</p>
 
           <h4>Your music and library</h4>
-          <p>playsic accesses only the audio files and folders you explicitly select through Apple's document picker. Your library — tracks, playlists, play counts, playback positions, edited metadata and artwork — is stored locally on your device using Apple's frameworks. It is not uploaded to us or to any third party. playsic does not use iCloud sync; iCloud Drive is used only as a place to read files you chose.</p>
+          <p>playsic accesses only the audio files and folders you explicitly select through Apple's document picker. Your library — copies of the audio files you import, tracks, playlists, play counts, playback positions, edited metadata and artwork — is stored locally on your device using Apple's frameworks. It is not uploaded to us or to any third party. playsic does not use iCloud sync.</p>
+          <p>iCloud Drive and other storage services in the Files app (such as Dropbox, Google Drive or OneDrive) are used only to read files you choose. playsic has no account with, and sends nothing to, those services; their own privacy policies govern how they handle your files.</p>
 
           <h4>Crash and diagnostic reports</h4>
           <p>To find and fix bugs, playsic sends anonymous crash and diagnostic reports to <a href="https://sentry.io/" rel="noopener">Sentry</a> (Functional Software, Inc.), stored in Sentry's EU data region (Germany). Reports may include:</p>
@@ -542,6 +543,17 @@ footer a:hover { color: var(--text); }
           <summary>How do I get my music into playsic?</summary>
           <div class="policy-body"><p>Copy your audio files into iCloud Drive or On My iPhone using the Files app, Finder on a Mac, or iCloud.com. Then in playsic, open Library, tap <strong>+</strong>, and choose <em>Import Files</em> or <em>Import Folder</em>.</p></div>
         </details>
+        <details id="faq-cloud-services">
+          <summary>Can I import from Dropbox, Google Drive or OneDrive?</summary>
+          <div class="policy-body">
+            <p>Yes — any storage service that appears in the Files app works. First set it up in Files:</p>
+            <ol>
+              <li>Install the service's app from the App Store and sign in.</li>
+              <li>Open the Files app, go to <strong>Browse</strong>, tap <strong>⋯</strong> (top right) → <strong>Edit</strong>, and switch the service on.</li>
+            </ol>
+            <p>Then import as normal: in playsic, open Library, tap <strong>+</strong>, choose <em>Import Files</em> or <em>Import Folder</em>, and pick the service under Locations. playsic copies each track to your device as it imports, so playback doesn't depend on the service afterwards.</p>
+          </div>
+        </details>
         <details>
           <summary>A track says it's downloading. What's happening?</summary>
           <div class="policy-body"><p>The file lives in iCloud Drive and isn't on your device yet. playsic asks iOS to download it and shows progress. Keep a network connection until it finishes; after that it plays offline.</p></div>
@@ -552,7 +564,7 @@ footer a:hover { color: var(--text); }
         </details>
         <details>
           <summary>I moved or renamed files and a track won't play.</summary>
-          <div class="policy-body"><p>playsic keeps a secure reference to each file and usually follows moves. If a file was deleted or moved to a different provider, re-import it. Failed imports can be retried from the Library.</p></div>
+          <div class="policy-body"><p>Once a track is imported, playsic plays its own copy, so moving or renaming the original doesn't affect it. If you used <em>Free Up Space</em> in Settings → Storage, playsic fetches the track from its original location next time you play it — if that file has since moved or been deleted, re-import it. Failed imports can be retried from the Library.</p></div>
         </details>
         <details>
           <summary>How do I restore my Premium purchase?</summary>
@@ -560,7 +572,7 @@ footer a:hover { color: var(--text); }
         </details>
         <details>
           <summary>Can I move my library to a new device?</summary>
-          <div class="policy-body"><p>Premium can export a library backup (and playlists as M3U). Restoring a backup on the new device is free. Your audio files themselves stay in iCloud Drive or wherever you keep them.</p></div>
+          <div class="policy-body"><p>Premium can export a library backup (and playlists as M3U). Restoring a backup on the new device is free. Backups hold your library details and playlists, not the audio itself, so import your music on the new device from wherever you keep it.</p></div>
         </details>
         <details>
           <summary>Does playsic stream music or work with Apple Music?</summary>
@@ -612,7 +624,7 @@ footer a:hover { color: var(--text); }
     </nav>
   </div>
   <div class="wrap" style="margin-top:14px;font-size:12px;opacity:.8">
-    Apple, the Apple logo, iPhone, iPad and App Store are trademarks of Apple Inc.
+    Apple, the Apple logo, AirPlay, Apple Music, App Store, Dynamic Island, Finder, iCloud, iCloud Drive, iPad, iPadOS, iPhone, Live Activities, Mac and Siri are trademarks of Apple Inc., registered in the U.S. and other countries and regions. Dropbox is a trademark of Dropbox, Inc. Google Drive is a trademark of Google LLC. Microsoft and OneDrive are trademarks of the Microsoft group of companies. All other trademarks are the property of their respective owners. playsic is not affiliated with or endorsed by Apple, Dropbox, Google or Microsoft.
   </div>
 </footer>
 
